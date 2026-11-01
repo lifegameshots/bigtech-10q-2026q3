@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>미국 빅테크 2026년 3분기 10-Q: MD&amp;A 해부와 클라우드 성장의 기원 검증</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF5EC;
+    --paper:#FFFDF8;
+    --ink:#2C2822;
+    --ink-soft:#5C544A;
+    --gold:#B08D57;
+    --gold-soft:#D9C39B;
+    --copper:#A2603E;
+    --line:#E4D9C6;
+    --wash:#F3EADA;
+    --green:#4E6B4A;
+    --red:#8C3B2E;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:0;background:var(--ivory);color:var(--ink);
+    font-family:"Gowun Batang","Nanum Myeongjo","Apple SD Gothic Neo","Noto Serif KR",serif;
+    font-size:16.5px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:960px;margin:0 auto;padding:64px 40px 96px;background:var(--paper);
+    box-shadow:0 0 0 1px var(--line);}
+  header.cover{border-bottom:2px solid var(--gold);padding-bottom:32px;margin-bottom:52px}
+  .kicker{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--copper);margin-bottom:18px}
+  h1{font-size:34px;line-height:1.45;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .sub{font-size:17px;color:var(--ink-soft);margin:0 0 26px;line-height:1.8}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--ink-soft);
+    border-top:1px solid var(--line);padding-top:16px}
+  .meta b{color:var(--ink);font-weight:700}
+
+  h2{font-size:23px;margin:64px 0 8px;font-weight:700;letter-spacing:-.01em;
+     display:flex;align-items:baseline;gap:14px}
+  h2 .num{font-size:12px;letter-spacing:.2em;color:var(--gold);font-weight:700}
+  h2 + .lede{color:var(--ink-soft);margin:0 0 26px;font-size:15.5px}
+  h3{font-size:18px;margin:38px 0 10px;font-weight:700}
+  h3 .tag{font-size:11px;letter-spacing:.12em;color:var(--copper);border:1px solid var(--gold-soft);
+    padding:2px 8px;border-radius:2px;margin-left:10px;vertical-align:2px;font-family:inherit}
+  h4{font-size:15px;margin:26px 0 6px;font-weight:700;color:var(--ink)}
+  p{margin:0 0 16px}
+  strong{font-weight:700}
+  em{font-style:normal;border-bottom:1px solid var(--gold-soft)}
+
+  .verdict{margin:34px 0 12px;padding:26px 30px;background:var(--wash);
+    border-left:3px solid var(--copper)}
+  .verdict .lead{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin-bottom:12px}
+  .verdict p{margin:0 0 10px}
+  .verdict p:last-child{margin-bottom:0}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 10px;font-size:14.5px}
+  caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--copper);
+    letter-spacing:.12em;text-transform:uppercase;padding-bottom:10px}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+  thead th{border-top:1.5px solid var(--gold);border-bottom:1px solid var(--gold);
+    font-size:13px;letter-spacing:.04em;color:var(--ink);background:transparent}
+  tbody tr:nth-child(even){background:#FCF8F0}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .pos{color:var(--green);font-weight:700}
+  .neg{color:var(--red);font-weight:700}
+  .src{font-size:12.5px;color:var(--ink-soft);margin:6px 0 26px;line-height:1.7}
+
+  .grade{display:inline-block;font-size:11px;letter-spacing:.1em;padding:2px 7px;
+    border-radius:2px;border:1px solid var(--gold-soft);color:var(--copper);vertical-align:1px}
+  .g-a{background:#EDE3CF;border-color:var(--gold);color:#7A5A2E}
+  .g-b{background:#F6EDE2;border-color:var(--copper);color:var(--copper)}
+  .g-c{background:#EFEDE6;border-color:#C6BEAF;color:#6B6357}
+
+  ul.tight{margin:8px 0 20px;padding-left:20px}
+  ul.tight li{margin-bottom:9px}
+  ol.tight{margin:8px 0 20px;padding-left:22px}
+  ol.tight li{margin-bottom:11px}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0 8px}
+  .card{border:1px solid var(--line);padding:20px 22px;background:#FFFCF5}
+  .card .co{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .card .big{font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+  .card .cap{font-size:13.5px;color:var(--ink-soft);margin-top:6px;line-height:1.7}
+
+  .flow{margin:30px 0 12px;border:1px solid var(--line);padding:28px 24px;background:#FCF8F0}
+  .flow .row{display:grid;grid-template-columns:1fr 92px 1fr;align-items:center;gap:0;margin-bottom:22px}
+  .flow .row:last-child{margin-bottom:0}
+  .box{border:1px solid var(--gold-soft);background:var(--paper);padding:14px 16px;font-size:14px;line-height:1.65}
+  .box .h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);display:block;margin-bottom:4px}
+  .arrow{text-align:center;font-size:13px;color:var(--copper);line-height:1.4}
+  .arrow .a{display:block;font-size:20px}
+
+  .note{font-size:13.5px;color:var(--ink-soft);border-left:2px solid var(--gold-soft);
+    padding:4px 0 4px 16px;margin:20px 0}
+  hr.sep{border:0;border-top:1px solid var(--line);margin:56px 0}
+  footer{margin-top:70px;border-top:2px solid var(--gold);padding-top:24px;
+    font-size:13px;color:var(--ink-soft);line-height:1.85}
+
+  @media (max-width:760px){
+    .page{padding:36px 20px 60px}
+    h1{font-size:26px}
+    .cards{grid-template-columns:1fr}
+    .flow .row{grid-template-columns:1fr;gap:8px}
+    .arrow .a{display:none}
+    table{font-size:13px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="cover">
+  <div class="kicker">SEC EDGAR 원문 분석 · 2026년 3분기</div>
+  <h1>미국 빅테크 10-Q의 MD&amp;A 해부<br>클라우드 성장은 AI랩이 사 준 것인가</h1>
+  <p class="sub">마이크로소프트, 알파벳, 아마존, 메타의 2026년 3분기(9월 30일 종료) 10-Q와 오라클의 2027회계연도 1분기 10-Q를 직접 내려받아 MD&amp;A를 해체했다. 질문은 하나다. 이번 분기 클라우드 매출 성장의 상당 부분이 AI 연구소들의 컴퓨트 구매에서 나왔는가. 답은 회사별로 증거의 강도가 다르며, 그 차이 자체가 정보였다.</p>
+  <div class="meta">
+    <span><b>기준일</b> 2026년 11월 2일 (KST)</span>
+    <span><b>원문 출처</b> SEC EDGAR (data.sec.gov / www.sec.gov)</span>
+    <span><b>대상</b> MSFT · GOOGL · AMZN · META · ORCL</span>
+    <span><b>문서</b> 10-Q 5건, 파싱 원문 포함</span>
+  </div>
+</header>
+
+<div class="verdict">
+  <div class="lead">한 줄 판정</div>
+  <p><strong>마이크로소프트에서는 공시로 확인되고, 아마존에서는 계약 규모로 확인되며, 알파벳에서는 방향만 확인되고 크기는 확인되지 않는다.</strong> 메타는 이 흐름의 수요자, 즉 클라우드를 사는 쪽이다.</p>
+  <p>동시에 세 회사 모두 AI랩의 주주·채권자·백스톱 제공자다. 랩에 들어간 자금이 다시 자기 클라우드 매출로 돌아오는 구조이므로, 이 성장을 순수한 외생 수요로 부르기에는 이르다. 10-Q는 그 고리를 끊지 않고 오히려 숫자로 드러냈다.</p>
+</div>
+
+<h2><span class="num">01</span> 확보한 원문</h2>
+<p class="lede">전부 SEC 1차 문서다. 재가공 요약본이나 보도자료가 아니라 회사가 서명해 제출한 10-Q 원문이며, 함께 실린 MD&amp;A 구간을 텍스트로 추출해 교차 확인했다.</p>
+
+<table>
+  <caption>Table 1. 수집 목록</caption>
+  <thead>
+    <tr><th>회사</th><th>회계 기준 분기</th><th>대상 기간</th><th>접수번호</th><th>제출일</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Microsoft</td><td>FY2027 Q1</td><td>2026-07-01 ~ 09-30</td><td>0001193125-26-436133</td><td>2026-10-28</td></tr>
+    <tr><td>Alphabet</td><td>2026 Q3</td><td>2026-07-01 ~ 09-30</td><td>0001652044-26-000084</td><td>2026-10-29</td></tr>
+    <tr><td>Amazon</td><td>2026 Q3</td><td>2026-07-01 ~ 09-30</td><td>0001018724-26-000040</td><td>2026-10-30</td></tr>
+    <tr><td>Meta</td><td>2026 Q3</td><td>2026-07-01 ~ 09-30</td><td>0001628280-26-066773</td><td>2026-10-22</td></tr>
+    <tr><td>Oracle</td><td>FY2027 Q1</td><td>2026-06-01 ~ 08-31</td><td>0001193125-26-389274</td><td>2026-09-11</td></tr>
+  </tbody>
+</table>
+<p class="src">애플은 2026년 9월 26일 종료 회계연도의 10-K를 아직 제출하지 않았고, 엔비디아는 회계분기가 달라 최신 문서가 2026년 7월 26일 종료 10-Q다. 두 회사는 이번 비교에서 제외했다. 오라클은 회계분기가 8월 31일에 끝나지만 AI 데이터센터 수주 잔고를 가장 노골적으로 공시하는 회사여서 보조 지표로 넣었다.</p>
+
+<h2><span class="num">02</span> 회사별 MD&amp;A 핵심</h2>
+
+<h3>마이크로소프트 <span class="tag">구조 개편이 먼저 보인다</span></h3>
+<p>이번 분기 MD&amp;A에서 가장 먼저 눈에 들어오는 것은 실적이 아니라 보고 체계의 변경이다. 2026년 9월에 세그먼트를 <strong>Agents and Infra</strong>와 <strong>Devices and Consumer</strong> 두 개로 재편했고, FY2027 1분기부터 이 기준으로 보고한다. 애저와 M365 클라우드, 코파일럿이 한 세그먼트로 묶였다. 동시에 애저 매출의 정의도 다시 썼는데, 여기에 <em>“GPU 워크로드, 즉 GPU 인프라 서비스와 Foundry”</em>가 명시됐다. 남의 모델을 돌려주는 사업이 애저 안에 있다는 사실을 정의문에 새긴 셈이다.</p>
+
+<table>
+  <caption>Table 2. Microsoft FY2027 Q1 (백만 달러)</caption>
+  <thead><tr><th>항목</th><th class="num">2026 Q3</th><th class="num">2025 Q3</th><th class="num">증감</th></tr></thead>
+  <tbody>
+    <tr><td>매출</td><td class="num">92,279</td><td class="num">77,673</td><td class="num pos">+19%</td></tr>
+    <tr><td>영업이익</td><td class="num">45,915</td><td class="num">37,961</td><td class="num pos">+21%</td></tr>
+    <tr><td>순이익</td><td class="num">36,629</td><td class="num">27,747</td><td class="num pos">+32%</td></tr>
+    <tr><td>Microsoft Cloud 매출</td><td class="num">63,900</td><td class="num">—</td><td class="num pos">+30%</td></tr>
+    <tr><td>애저 매출 증가율</td><td class="num">—</td><td class="num">—</td><td class="num pos">+48%</td></tr>
+    <tr><td>상업용 RPO</td><td class="num">677,000</td><td class="num">—</td><td class="num pos">+73%</td></tr>
+    <tr><td>유형자산 취득(현금)</td><td class="num">39,367</td><td class="num">19,394</td><td class="num pos">+103%</td></tr>
+  </tbody>
+</table>
+<p class="src">출처: Microsoft 10-Q, MD&amp;A Highlights 및 현금흐름표. 순이익에는 OpenAI 지분 평가이익 207백만 달러가 포함되며, 이를 제외한 조정 순이익은 36,422백만 달러(+18%)다.</p>
+
+<ul class="tight">
+  <li>성장의 축은 명확히 Agents and Infra다. 이 세그먼트 매출이 25% 늘어 768억 달러를 기록했고, 그 안에서 애저가 108억 달러 증가분을 만들었다. 반대로 Devices and Consumer는 3% 줄었고 윈도우 OEM은 22% 감소했다.</li>
+  <li>클라우드 총마진율은 66%로 내려갔다. 애저 비중이 커진 믹스 효과 때문이며, 회사는 애저 자체의 제품 단위 마진은 개선됐다고 밝혔다.</li>
+  <li>총 RPO는 6,830억 달러, 상업용 기준 6,770억 달러다. 가중평균 잔여 기간은 2.3년이고, 12개월 내 인식분은 30% 수준이다.</li>
+  <li>연구개발비는 11% 늘어 90억 달러다. 회사는 증가 사유를 “컴퓨트 용량과 인재에 대한 지속 투자”로 적었다.</li>
+</ul>
+
+<h3>알파벳 <span class="tag">클라우드가 두 배로</span></h3>
+<p>알파벳의 이번 분기는 숫자 자체가 사건이다. 구글 클라우드 매출이 307억 달러로 전년 동기 152억 달러에서 102.6% 늘었다. 영업이익은 36억 달러에서 111억 달러로 뛰었다. 회사는 증가 요인을 “구글 클라우드 플랫폼의 인프라·플랫폼 서비스 성장과 <strong>TPU 시스템 판매</strong>”로 명시했다.</p>
+
+<table>
+  <caption>Table 3. Alphabet 2026 Q3 (백만 달러)</caption>
+  <thead><tr><th>항목</th><th class="num">2026 Q3</th><th class="num">2025 Q3</th><th class="num">증감</th></tr></thead>
+  <tbody>
+    <tr><td>매출</td><td class="num">127,577</td><td class="num">102,346</td><td class="num pos">+25%</td></tr>
+    <tr><td>영업이익</td><td class="num">40,576</td><td class="num">31,228</td><td class="num pos">+30%</td></tr>
+    <tr><td>구글 클라우드 매출</td><td class="num">30,709</td><td class="num">15,157</td><td class="num pos">+102.6%</td></tr>
+    <tr><td>구글 클라우드 영업이익</td><td class="num">11,121</td><td class="num">3,594</td><td class="num pos">+209%</td></tr>
+    <tr><td>순이익</td><td class="num">26,170</td><td class="num">34,979</td><td class="num neg">−25%</td></tr>
+    <tr><td>자본적지출(3개월)</td><td class="num">51,400</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>수주 잔고(클라우드)</td><td class="num">560,800</td><td class="num">—</td><td class="num">—</td></tr>
+  </tbody>
+</table>
+<p class="src">출처: Alphabet 10-Q, MD&amp;A Executive Overview, 세그먼트 손익, Revenue Backlog 주석. 순이익 감소는 스페이스X 등 시장성 지분의 평가손 86.6억 달러 때문이며 영업과는 무관하다.</p>
+
+<ul class="tight">
+  <li>수주 잔고는 총 5,677억 달러, 이 가운데 5,608억 달러가 클라우드다. 6월 말 5,139억 달러에서 3개월 만에 469억 달러 늘었다.</li>
+  <li>TPU 시스템 판매는 <em>하드웨어·소프트웨어·설치·지원</em>을 묶은 제품 매출로 잡히고, 고객이 정해진 가격에 되팔 수 있는 옵션이 붙으면 금융보증으로 회계 처리한다. 2분기에 인식을 시작했고 <strong>상당 부분은 2027년에 인식</strong>된다.</li>
+  <li>수주 잔고 5,608억 달러 중 168억 달러는 블랙스톤과 만든 조인트벤처 <strong>Crux AI</strong>와의 다년 상업 계약분이다. 구글이 지분을 보유한 관계기업이면서, 구글이 100억 달러 백스톱을 제공하는 상대다.</li>
+  <li>장부에 없는 미래 현금 약정이 크다. 매입 약정 9,244억 달러(이 중 기술 인프라·재고·에너지 8,021억 달러, 12개월 내 2,134억 달러), 미개시 리스 1,305억 달러, 데이터센터 백스톱 757억 달러, 금융보증 228억 달러다.</li>
+  <li>9개월 자본적지출은 1,320억 달러, 감가상각은 220억 달러로 전년 151억 달러에서 46% 늘었다.</li>
+</ul>
+
+<h3>아마존 <span class="tag">계약서에 이름이 있다</span></h3>
+<p>아마존은 세 회사 중 계약 상대를 가장 구체적으로 적었다. 9월 30일 기준 1년 초과 계약의 미인식 약정, 즉 사실상의 수주 잔고가 <strong>5,780억 달러</strong>다. 6월 말 4,960억 달러에서 한 분기에 820억 달러 늘었다. 가중평균 잔여 기간은 6.1년이다.</p>
+
+<table>
+  <caption>Table 4. Amazon 2026 Q3 (백만 달러)</caption>
+  <thead><tr><th>항목</th><th class="num">2026 Q3</th><th class="num">2025 Q3</th><th class="num">증감</th></tr></thead>
+  <tbody>
+    <tr><td>매출</td><td class="num">201,944</td><td class="num">180,169</td><td class="num pos">+12%</td></tr>
+    <tr><td>AWS 매출</td><td class="num">45,984</td><td class="num">33,006</td><td class="num pos">+39.3%</td></tr>
+    <tr><td>AWS 영업이익</td><td class="num">17,773</td><td class="num">11,434</td><td class="num pos">+55%</td></tr>
+    <tr><td>영업이익(전사)</td><td class="num">28,076</td><td class="num">17,422</td><td class="num pos">+61%</td></tr>
+    <tr><td>자본적지출(현금)</td><td class="num">75,900</td><td class="num">34,200</td><td class="num pos">+122%</td></tr>
+    <tr><td>잉여현금흐름(TTM)</td><td class="num neg">−42,357</td><td class="num pos">+14,788</td><td class="num neg">적자 전환</td></tr>
+  </tbody>
+</table>
+<p class="src">출처: Amazon 10-Q, MD&amp;A Net Sales, Results of Operations, Free Cash Flow, Note 1(수행의무), Note 2(비시장성 투자).</p>
+
+<ul class="tight">
+  <li>AWS 성장률은 39.3%다. 회사는 증가 요인을 “고객 사용량 증가, 장기 고객 계약에 따른 가격 변화가 일부 상쇄”로 적었다.</li>
+  <li>2026년 1분기에 AWS와 OpenAI가 기존 380억 달러 약정을 <strong>8년간 1,000억 달러 추가</strong>로 확대했다. 여기에는 AWS 칩의 성능에 관한 계약 의무가 포함된다. 2분기에는 AWS와 앤스로픽이 기존 다년 약정을 <strong>10년간 1,000억 달러 이상</strong> 늘렸고, 역시 AWS 칩 성능 의무가 붙었다.</li>
+  <li>지분 투자 규모가 자본 배분의 중심으로 이동했다. 9개월간 OpenAI 시리즈C 우선주에 500억 달러(3분기 213억 달러), 앤스로픽 우선주에 100억 달러를 넣었다. 앤스로픽 지분 장부가는 1,403억 달러, 비상장 지분 전체는 1,437억 달러, 지분·워런트·전환사채 합계는 2,988억 달러다.</li>
+  <li>같은 기간 차입이 1,358억 달러 늘었고 잉여현금흐름은 12개월 기준 424억 달러 적자로 돌아섰다. 2026년 자본적지출은 약 2,200억 달러, 2027년에는 더 늘리겠다고 명시했다.</li>
+</ul>
+
+<h3>메타 <span class="tag">사는 쪽의 회계</span></h3>
+<p>메타는 클라우드를 팔지 않는다. 그런데 이번 분기 MD&amp;A는 클라우드 수요의 반대편을 보여준다. 원가와 연구개발비 증가 사유로 반복해서 등장하는 항목이 <em>“데이터센터·기술 인프라 및 <strong>제3자 클라우드 서비스</strong> 관련 인프라 비용”</em>과 <em>“제3자 AI 토큰 비용”</em>이다.</p>
+
+<table>
+  <caption>Table 5. Meta 2026 Q3 (백만 달러)</caption>
+  <thead><tr><th>항목</th><th class="num">2026 Q3</th><th class="num">2025 Q3</th><th class="num">증감</th></tr></thead>
+  <tbody>
+    <tr><td>매출</td><td class="num">64,601</td><td class="num">51,242</td><td class="num pos">+26%</td></tr>
+    <tr><td>광고 매출</td><td class="num">63,061</td><td class="num">50,082</td><td class="num pos">+26%</td></tr>
+    <tr><td>영업이익</td><td class="num">12,988</td><td class="num">20,535</td><td class="num neg">−37%</td></tr>
+    <tr><td>자본적지출(금융리스 포함)</td><td class="num">34,910</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>비취소 계약 약정</td><td class="num">454,520</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>미개시 리스 약정</td><td class="num">355,730</td><td class="num">—</td><td class="num">—</td></tr>
+  </tbody>
+</table>
+<p class="src">출처: Meta 10-Q, MD&amp;A Executive Overview, Cost of revenue, R&amp;D, Leases and Contractual Commitments.</p>
+
+<ul class="tight">
+  <li>영업이익 감소의 절대 부분은 8월 다주 법무장관 합의에 따른 <strong>98.9억 달러</strong> 일회성 비용이다. 9개월 누적으로는 118.9억 달러다. 10년 분할 지급액 127억 달러 중 53억 달러는 우발액으로 아직 부채로 계상하지 않았다.</li>
+  <li>비취소 약정 4,545억 달러의 성격이 중요하다. 대부분이 <strong>제3자 클라우드 용량 계약</strong>, 서버·네트워크 투자, 데이터센터 에너지 계약이다. 2026년에 459억 달러, 2027년에 1,214억 달러가 만기다.</li>
+  <li>별도로 5년간 최대 <strong>147억 달러</strong>의 클라우드 용량을 사기로 한 우발 의무가 있고, 공급자가 그 용량을 제3자에게 팔면 금액이 줄어든다. 인프라 구매계약의 에스크로 요건으로 108억 달러를 제한 현금으로 재분류했다.</li>
+  <li>2026년 자본적지출 가이던스는 1,350억~1,450억 달러다. 9개월 감가상각은 195억 달러로 아직 자본적지출 증가 속도를 따라가지 못한다.</li>
+</ul>
+
+<h3>오라클 <span class="tag">잔고와 선수금이 전부</span></h3>
+<p>보조 지표로 넣은 회사인데, 이번 사이클의 성격을 가장 압축적으로 보여준다. 8월 31일 기준 수주 잔고(RPO)가 <strong>6,640억 달러</strong>다. 12개월 내 인식분은 13%, 13~36개월 37%, 37~60개월 34%다. 분기 매출이 193억 달러인 회사의 잔고가 6,640억 달러라는 뜻이다.</p>
+<ul class="tight">
+  <li>분기 자본적지출이 285억 달러로 전년 동기 85억 달러의 3.4배다.</li>
+  <li>고객이 유의적 금융요소를 포함해 미리 낸 선수금이 분기 중 <strong>114억 달러</strong>였다. 전년 동기에는 없던 항목이다. 고객 돈으로 데이터센터를 짓는 구조가 회계에 나타난 것이다.</li>
+  <li>회사는 고객과의 장기 지급 계약을 금융기관에 비소구로 매각한다. 분기 중 매각한 금융수취채권은 6.52억 달러다.</li>
+  <li>클라우드 매출 비중은 60%로 전년 48%에서 올라섰다. 한편 OCI 사업 설명과 관련한 증권 집단소송이 진행 중이다.</li>
+</ul>
+
+<hr class="sep">
+
+<h2><span class="num">03</span> 검증: 성장의 기원은 AI랩인가</h2>
+<p class="lede">증거를 세 등급으로 나눴다. A는 공시 문면으로 직접 확인되는 것, B는 방향은 확인되나 크기를 특정할 수 없는 것, C는 반대 방향의 증거다.</p>
+
+<table>
+  <caption>Table 6. 증거 등급표</caption>
+  <thead><tr><th>회사</th><th>공시된 사실</th><th>해석</th><th class="num">등급</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Microsoft</td>
+      <td>OpenAI는 지분법 피투자자이자 ASC 850상 관련당사자. 2026년 3분기 OpenAI 관련 상업 계약 매출 <strong>100억 달러</strong>, 매출채권 72억 달러, 투자 약정 130억 달러 중 120억 달러 집행</td>
+      <td>총매출의 10.8%. 같은 분기 애저 매출 증가분 108억 달러와 거의 같은 크기</td>
+      <td class="num"><span class="grade g-a">A</span></td>
+    </tr>
+    <tr>
+      <td>Amazon</td>
+      <td>1년 초과 계약의 미인식 약정 <strong>5,780억 달러</strong>. 여기에 OpenAI 380억+1,000억 달러, 앤스로픽 1,000억 달러 이상 약정이 명시</td>
+      <td>공시된 두 랩 관련 약정 합계 2,380억 달러는 전체 잔고의 약 41%</td>
+      <td class="num"><span class="grade g-a">A</span></td>
+    </tr>
+    <tr>
+      <td>Oracle</td>
+      <td>RPO <strong>6,640억 달러</strong>, 분기 자본적지출 285억 달러, 고객 선수금 114억 달러</td>
+      <td>고객 예약과 선금이 자본지출을 떠받치는 구조. 다만 고객명은 미공시</td>
+      <td class="num"><span class="grade g-b">B</span></td>
+    </tr>
+    <tr>
+      <td>Alphabet</td>
+      <td>구글 클라우드 +102.6%, 클라우드 잔고 <strong>5,608억 달러</strong>(전분기 5,139억), TPU 시스템 판매 개시, Crux AI 관계당사자 잔고 168억 달러</td>
+      <td>성장의 원천이 AI 인프라 수요임은 명확하나, 고객별 매출과 AI랩 비중은 공시되지 않음</td>
+      <td class="num"><span class="grade g-b">B</span></td>
+    </tr>
+    <tr>
+      <td>Meta</td>
+      <td>제3자 클라우드 용량 등 비취소 약정 <strong>4,545억 달러</strong>, 5년간 최대 147억 달러 클라우드 구매 우발 의무</td>
+      <td>하이퍼스케일러 매출의 일부는 다른 빅테크의 자본적지출이다. 수요의 순환을 보여줌</td>
+      <td class="num"><span class="grade g-c">C</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>논거 1. 마이크로소프트의 100억 달러는 우연히 애저 증가분과 겹친다</h4>
+<p>마이크로소프트는 OpenAI 지분을 약 24%(전환 기준) 보유하고 지분법으로 회계 처리한다. 그래서 ASC 850에 따라 OpenAI와의 거래를 공시해야 한다. FY2026 전체로 OpenAI 관련 매출은 241억 달러, 분기 평균으로는 약 60억 달러였다. 그런데 FY2027 1분기 한 분기에 <strong>100억 달러</strong>를 기록했다. 분기 평균 대비 66% 증가다.</p>
+<p>같은 분기 애저 매출 증가분은 108억 달러다. 비율로 치면 92.6%다. 물론 OpenAI 매출 전부가 애저에서 나온다고 단정할 수는 없다. 모델 라이선스와 수익 배분금도 섞여 있다. 그래도 이 정도 크기의 관련당사자 매출이 애저 증가분과 거의 일치한다는 사실은, 애저 48% 성장의 상당 부분이 한 고객의 컴퓨트 구매에 기대고 있음을 시사한다.</p>
+
+<h4>논거 2. 아마존은 계약서에 이름과 금액을 적었다</h4>
+<p>아마존의 미인식 약정 5,780억 달러 가운데 두 랩과의 약정이 문서에 명시돼 있다. OpenAI 380억 달러에 1,000억 달러를 더한 1,380억 달러(8년), 앤스로픽 1,000억 달러 이상(10년)이다. 합계 2,380억 달러로 전체의 약 41%다.</p>
+<p>두 계약 모두 “AWS 칩의 성능에 관한 계약 의무”를 포함한다는 점이 특징이다. 자체 실리콘(트레이니움)의 성능을 계약 조건으로 건 것이고, 이는 랩이 단순 임차인이 아니라 공동 개발 파트너 위치에 있음을 뜻한다. 회사가 같은 기간 두 랩에 넣은 지분 투자는 600억 달러다.</p>
+
+<h4>논거 3. 알파벳은 방향은 보이지만 크기는 가려져 있다</h4>
+<p>클라우드 매출이 두 배가 된 것은 분명하고, 회사도 증가 요인으로 인프라 서비스와 TPU 시스템 판매를 들었다. 그러나 알파벳 10-Q에는 고객별 매출도, 앤스로픽이나 다른 AI랩과의 계약 금액도 나오지 않는다. 앤스로픽은 알파벳 10-Q 본문에 아예 등장하지 않는다.</p>
+<p>대신 구조적 흔적이 남아 있다. TPU 시스템 판매에 <strong>환매 옵션</strong>이 붙으면 금융보증으로 처리한다는 회계 정책, 그리고 관계기업 Crux AI와의 168억 달러 계약과 100억 달러 백스톱이다. 하드웨어를 팔면서 되사줄 의무를 지는 구조는 매출 인식과 위험 이전을 분리한다. 2027년에 인식될 금액이 크다는 점도 이번 분기 성장률의 지속성을 판단할 때 감안해야 한다.</p>
+
+<h4>논거 4. 메타는 반대편에서 같은 현상을 증언한다</h4>
+<p>메타의 비취소 약정 4,545억 달러 중 상당 부분이 제3자 클라우드 용량이다. 즉 메타의 자본지출과 비용은 마이크로소프트·아마존·구글, 그리고 신생 GPU 클라우드 사업자의 매출로 들어간다. 클라우드 성장의 수요처에는 AI랩만 있는 것이 아니라 다른 빅테크도 있다는 뜻이다. “AI랩이 클라우드 성장의 기원”이라는 명제는 이 지점에서 단순화된다.</p>
+
+<div class="flow">
+  <div class="row">
+    <div class="box"><span class="h">하이퍼스케일러</span>MSFT · AMZN · GOOGL<br>자본지출 4사 합계 분기 2,016억 달러</div>
+    <div class="arrow"><span class="a">→</span>지분·전환사채<br>백스톱·보증</div>
+    <div class="box"><span class="h">AI랩</span>OpenAI · Anthropic<br>MSFT 130억, AMZN 600억, GOOGL 백스톱</div>
+  </div>
+  <div class="row">
+    <div class="box"><span class="h">매출로 회귀</span>MSFT OpenAI 매출 100억<br>AMZN 잔고 2,380억 약정</div>
+    <div class="arrow"><span class="a">←</span>컴퓨트 대금<br>다년 약정</div>
+    <div class="box"><span class="h">랩의 지출</span>학습·추론 컴퓨트<br>자체 현금 + 투자 유치</div>
+  </div>
+</div>
+<p class="src">자본지출 3사 합계는 MSFT 393.7억 + GOOGL 514억 + AMZN 759억 달러(2026년 3분기). 메타 349억 달러를 더하면 4사 합계 2,016억 달러다.</p>
+
+<h4>반증과 한계</h4>
+<ul class="tight">
+  <li><strong>인과의 방향을 10-Q만으로 확정할 수 없다.</strong> 마이크로소프트의 OpenAI 매출 공시는 관련당사자 규정이 강제한 예외적 공시다. 알파벳과 아마존은 고객별 매출을 공시하지 않으므로, 그쪽의 “AI랩 기원”은 계약 공시와 산업 보도에 기대는 추정이다.</li>
+  <li><strong>랩의 지급 능력은 검증되지 않는다.</strong> 5,780억 달러 잔고는 랩이 앞으로 그만큼 현금을 만들거나 조달한다는 전제 위에 있다. 랩의 매출과 조달 능력은 이 10-Q들 안에 없다.</li>
+  <li><strong>순환매출의 비중을 알 수 없다.</strong> 하이퍼스케일러가 넣은 투자금이 몇 %가량 다시 자기 매출로 돌아왔는지, 10-Q는 분해하지 않는다. 마이크로소프트의 OpenAI 투자 약정 130억 달러와 OpenAI의 분기 컴퓨트 지급액 100억 달러를 나란히 놓으면 규모가 비슷하다는 것만 확인된다.</li>
+  <li><strong>알파벳의 이익 증가에는 평가익이 섞여 있다.</strong> 9개월 지분증권 평가이익 1,273억 달러가 순이익에 반영됐고, 회사는 이를 “비상장사 중심”이라고만 적었다. 클라우드 영업이익 111억 달러와는 별개 계정이므로 혼동하면 안 된다.</li>
+</ul>
+
+<hr class="sep">
+
+<h2><span class="num">04</span> 재무적 귀결: 성장이 남긴 흔적</h2>
+<p class="lede">성장의 출처를 따로 떼어 보려 할 때 가장 잘 버티는 지표는 손익이 아니라 현금과 약정이다.</p>
+
+<table>
+  <caption>Table 7. 2026년 3분기 4사 비교 (억 달러 환산 전, 백만 달러)</caption>
+  <thead><tr><th>지표</th><th class="num">MSFT</th><th class="num">GOOGL</th><th class="num">AMZN</th><th class="num">META</th></tr></thead>
+  <tbody>
+    <tr><td>자본적지출</td><td class="num">39,367</td><td class="num">51,400</td><td class="num">75,900</td><td class="num">34,910</td></tr>
+    <tr><td>클라우드 매출</td><td class="num">63,900</td><td class="num">30,709</td><td class="num">45,984</td><td class="num">—</td></tr>
+    <tr><td>클라우드 성장률</td><td class="num">+30%</td><td class="num">+102.6%</td><td class="num">+39.3%</td><td class="num">—</td></tr>
+    <tr><td>수주 잔고</td><td class="num">683,000</td><td class="num">567,700</td><td class="num">578,000</td><td class="num">—</td></tr>
+    <tr><td>미개시 리스</td><td class="num">—</td><td class="num">130,500</td><td class="num">—</td><td class="num">355,730</td></tr>
+    <tr><td>잉여현금흐름</td><td class="num">—</td><td class="num">—</td><td class="num neg">−42,357(TTM)</td><td class="num">—</td></tr>
+  </tbody>
+</table>
+<p class="src">수주 잔고는 MSFT 총 RPO 6,830억 달러(상업용 6,770억), GOOGL 총 5,677억 달러, AMZN 1년 초과 미인식 약정 5,780억 달러 기준이다. 정의가 서로 달라 단순 합산은 무의미하다.</p>
+
+<ul class="tight">
+  <li><strong>자본지출이 클라우드 매출을 앞질렀다.</strong> 4사 합계 자본지출 2,016억 달러는 3사 클라우드 매출 합계 1,406억 달러의 1.43배다.</li>
+  <li><strong>조달 구조가 바뀌었다.</strong> 알파벳은 3분기에 회사채 287억 달러를 발행했고, 아마존은 9개월간 1,358억 달러를 차입했으며, 메타는 840억 달러의 회사채를 안고 있다.</li>
+  <li><strong>감가상각이 아직 따라오지 않았다.</strong> 알파벳 9개월 감가상각 220억 달러, 메타 195억 달러는 각사 자본지출 증가율에 미치지 못한다. 자산이 가동에 들어가는 시차가 끝나면 이익 압력으로 돌아온다.</li>
+  <li><strong>약정이 부채보다 크다.</strong> 알파벳 매입 약정 9,244억 달러, 메타 비취소 약정 4,545억 달러는 각사 자본총계와 비교해도 큰 규모다. 이 약정들은 손익계산서 밖에 있다.</li>
+</ul>
+
+<h2><span class="num">05</span> 다음 분기에 확인할 것</h2>
+<ol class="tight">
+  <li>마이크로소프트의 OpenAI 관련 매출이 다시 늘어나는지, 그리고 그 증가분이 애저 증가분과 얼마나 붙어 다니는지. 이 비율이 90%를 넘으면 애저 성장은 사실상 단일 고객 지표가 된다.</li>
+  <li>아마존 잔고의 가중평균 잔여 기간. 6월 6.4년에서 9월 6.1년으로 짧아졌다. 신규 계약이 장기인지 단기인지를 이 숫자로 역산할 수 있다.</li>
+  <li>알파벳 TPU 시스템 매출의 2027년 인식 규모와 환매 옵션 행사 여부. 매출과 위험이 언제 갈라지는지가 관건이다.</li>
+  <li>세 회사의 감가상각 대비 매출 비율과 내용연수 변경 공시. 내용연수 연장은 이익을 늘리는 가장 조용한 방법이다.</li>
+  <li>AI랩의 실제 현금 조달 규모. 랩이 유상증자와 부채로 조달한 금액이 컴퓨트 약정 증가분을 따라가는지가 순환 구조의 지속 조건이다.</li>
+  <li>관계기업·조인트벤처 경유 매출. 알파벳의 Crux AI 168억 달러처럼, 자기가 백스톱을 대준 회사에서 잡히는 매출이 얼마나 늘어나는지.</li>
+</ol>
+
+<footer>
+  <p><strong>방법</strong> SEC EDGAR의 제출 이력 API(data.sec.gov/submissions)로 각사 2026년 9월 30일 종료 10-Q를 식별하고, 원문 HTML을 직접 내려받아 본문을 텍스트로 변환한 뒤 Item 2(Management's Discussion and Analysis) 구간과 관련 주석을 추출했다. 표의 수치는 원문 기재값이며, 비율과 합계는 원문 수치로 계산했다.</p>
+  <p><strong>한계</strong> 10-Q는 고객별 매출을 원칙적으로 공시하지 않는다. 마이크로소프트의 OpenAI 매출은 지분법 피투자자에 대한 관련당사자 공시 의무 덕분에 드러난 예외다. 알파벳과 아마존의 AI랩 의존도는 계약 금액과 산업 맥락에 근거한 추정이며, 공시된 사실과 같은 등급으로 취급하지 않았다.</p>
+  <p><strong>원문 보관</strong> 5개 사 10-Q 원문 HTML과 MD&amp;A 추출 텍스트는 같은 폴더에 함께 저장했다.</p>
+</footer>
+
+</div>
+</body>
+</html>
